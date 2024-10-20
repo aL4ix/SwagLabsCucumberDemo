@@ -57,9 +57,8 @@ public class Browser {
                 }
             }
         } else if ("android".equals(browserName)) {
-
             try {
-                URL remoteAddress = new URL("http://127.0.0.1:4723/wd/hub");
+                URL remoteAddress = new URL("http://127.0.0.1:4723/");
 
                 DesiredCapabilities capabilities = new DesiredCapabilities();
                 capabilities.setCapability("deviceName", "emulator-5554");
@@ -71,7 +70,6 @@ public class Browser {
 
             } catch (MalformedURLException e) {
                 throw new WebDriverException(e);
-
             }
         } else {
             throw new WebDriverException(String.format("Could not understand desired browser: %s", browserName));
