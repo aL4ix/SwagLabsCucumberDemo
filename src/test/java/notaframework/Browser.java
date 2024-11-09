@@ -71,6 +71,13 @@ public class Browser {
             } catch (MalformedURLException e) {
                 throw new WebDriverException(e);
             }
+        } else if ("android_emulation".equals(browserName)) {
+            WebDriverManager.chromedriver().setup();
+            Map<String, String> mobileEmulation = new HashMap<>();
+            mobileEmulation.put("deviceName", "Pixel 7");
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.setExperimentalOption("mobileEmulation", mobileEmulation);
+            driver = new ChromeDriver(chromeOptions);
         } else {
             throw new WebDriverException(String.format("Could not understand desired browser: %s", browserName));
         }

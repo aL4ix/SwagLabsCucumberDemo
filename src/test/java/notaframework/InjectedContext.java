@@ -6,7 +6,6 @@ public class InjectedContext {
 
     public InjectedContext() {
         browserName = "firefox";
-//        browserName = "android";
     }
 
     public Browser getBrowser() {
